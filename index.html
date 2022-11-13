@@ -1,0 +1,33 @@
+<html style='background-color: black'>
+  <div id="my_bouncing_box" style= "background-color: blue; border-radius: 3px; position: absolute; left: 0px; top: 0px; min-width: 100px; min-height: 100px; text-align: center; font-weight: bold; color: #999;" >shodiboy_o</div>
+  <script type="text/javascript">
+   const sqr = document.querySelector('#my_bouncing_box');
+   const body = document.querySelector('body')
+   body.style.height = window.innerHeight + 'px'
+   body.style.width = window.innerWidth + 'px'
+
+   let xPos = 1
+   let yPos = 1
+   let xSpeed = 4
+   let ySpeed = 4
+
+   function down(){
+       sqr.style.left = xPos + 'px'
+       sqr.style.top = yPos + 'px'
+   }
+
+   setInterval(() => {
+        if (xPos + sqr.clientWidth >= window.innerWidth || xPos <= 0 ) {
+            xSpeed = -xSpeed
+        }
+        if (yPos + sqr.clientHeight >= window.innerHeight || yPos <=0 ) {
+            ySpeed = -ySpeed
+        }
+        xPos += xSpeed
+        yPos += ySpeed
+        down()
+   }, 30);
+
+
+  </script>
+</html>
